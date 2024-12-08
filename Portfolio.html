@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Website</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #000;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+
+        .navbar .contact-btn {
+            background-color: transparent;
+            border: 1px solid #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: #fff;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #000;
+            color: #fff;
+            padding: 100px 50px;
+        }
+
+        .hero .image-container {
+            flex: 1;
+            text-align: center;
+        }
+
+        .hero .image-container img {
+            width: 300px;
+            height: auto;
+            border-radius: 50%; /* Circular image */
+        }
+
+        .hero .text-container {
+            flex: 2;
+            text-align: left;
+            padding-left: 50px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            line-height: 1.5;
+        }
+
+        /* Wave Divider */
+        .wave-divider {
+            position: relative;
+            background: #fff;
+        }
+
+        .wave-divider svg {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .about-me {
+    text-align: center;
+    padding: 20px 0;
+}
+.about-me h2 {
+    font-size: 24px;
+}
+.about-me .cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px 0;
+}
+.about-me .card {
+    background-color: #333;
+    border-radius: 10px;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+}
+.about-me .card i {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+.about-me .card h3 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+.about-me .card p {
+    font-size: 14px;
+    color: #aaa;
+}
+.about-me .card a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+.additional-info {
+    display: none;
+    font-size: 14px;
+    margin-top: 10px;
+    color: #ccc;
+    line-height: 1.5;
+}
+
+
+        /* Info Cards (About Me, Education, Certifications) */
+        .info-cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap; /* Ensure responsiveness */
+        }
+
+        .info-card {
+            background-color: #000; /* Black background */
+            color: #fff; /* White text */
+            border-radius: 10px;
+            padding: 20px;
+            width: 250px;
+            text-align: left;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow for effect */
+        }
+
+        .info-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .info-card p {
+            font-size: 14px;
+            color: #ccc; /* Light gray for better readability */
+            line-height: 1.6;
+        }
+
+        .info-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+
+        .info-card ul li {
+            font-size: 14px;
+            color: #ccc;
+            margin: 5px 0;
+        }
+
+        /* Projects Section */
+        .projects {
+            background-color: #fff; /* Ensure the background is white */
+            color: #000;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .projects h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .projects .project-cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .projects .project-card {
+            background-color: #000; /* Black background */
+            color: #fff; /* White text for contrast */
+            border-radius: 10px;
+            padding: 20px;
+            width: 250px;
+            text-align: left;
+        }
+
+        .projects .project-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .projects .project-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+
+        .projects .project-card ul li {
+            font-size: 14px;
+            color: #ccc; /* Light gray for better readability */
+            margin: 5px 0;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #f8f8f8; /* Footer background matches projects */
+            color: #000;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .footer .contact-me h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .footer .contact-icons i {
+            margin: 0 10px;
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero .text-container {
+                padding-left: 0;
+                margin-top: 20px;
+            }
+
+            .projects .project-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .info-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div>
+            <a href="#">About</a>
+            <a href="#">Education</a>
+            <a href="#">Projects</a>
+            <a href="#">Contact</a>
+        </div>
+        <a href="Attachment CV.pdf" class="contact-btn" download="Attachment CV.pdf">Download Resume</a>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <!-- Image on the left -->
+        <div class="image-container">
+            <img src="pic.png" alt="Profile Picture">
+        </div>
+
+        <!-- Text on the right -->
+        <div class="text-container">
+            <h1>Hi, I'm Lola Maimane</h1>
+            <p>I'm a Software Engineer </p>
+        </div>
+    </div>
+
+
+    <!-- Wave Divider -->
+    <div class="wave-divider">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#000" fill-opacity="1" d="M0,224L60,213.3C120,203,240,181,360,160C480,139,600,117,720,117.3C840,117,960,139,1080,144C1200,149,1320,139,1380,133.3L1440,128L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path></svg>
+    </div>
+
+<div class="about-me">
+    <h2>About me</h2>
+    <p>  
+
+       Hi again!I'm Lola Maimane, a passionate and versatile Software Engineer with expertise in designing and developing robust applications, intelligent systems, and scalable web solutions. With a strong foundation in modern programming tools and frameworks, I deliver innovative solutions that align with client objectives and drive success.I am committed to continuous learning and leveraging advanced technologies such as machine learning, AI, and frameworks . 
+   
+        
+        
+    </p>
+</div>
+    <div class="about-me">
+        <h2>Education</h2>
+        <div class="cards">
+            <div class="card">
+                <i class="fas fa-user"></i>
+                <h3>Skills</h3>
+                <p>Find out more about me, my interests, and passions.</p>
+                <a onclick="toggleInfo('about-info')" style="cursor: pointer;">Learn More ></a>
+                <div class="additional-info" id="about-info">
+                    **Key Skills and Expertise:**  
+        
+                    - **Database Programming**: Proficient in SQL and PL/SQL using Oracle products, as well as database management with SQL Server, MySQL, and MS Access.  
+                    - **Programming**: Skilled in Java, Python, PHP, and C++ development, with extensive experience using tools like Embarcadero C++ Builder and Microsoft Visual Studio (C++, Visual Basic, ASP.NET, C#, JavaScript, HTML).  
+                    - **Web Development**: Expertise in building dynamic, scalable web applications using Node.js, Django, Vue.js, React, PHP, HTML, JavaScript, ASP.NET, and Bootstrap for responsive UI/UX design.  
+                    - **Machine Learning & Artificial Intelligence**: Knowledgeable in developing AI and machine learning models to create intelligent, data-driven applications.  
+                    - **Frameworks and Libraries**: Proficient in modern frameworks and libraries such as React, Node.js, Django, Vue.js, and Bootstrap for full-stack development.  
+                    - **Systems Analysis and Design**: Skilled in structured methodologies and UML for efficient systems design and implementation.  
+                    - **Software Tools**: Experienced in using Microsoft Office applications for documentation, reporting, and project management.  
+                    - **Operating Systems**: Skilled in working with both Windows and Linux environments.  
+                    - **Hardware and Networks**: Knowledgeable in computer hardware systems and network infrastructure.  
+                    - **Development Environments**: Experienced with modern IDEs such as Visual Studio and NetBeans for application development. 
+                    - technologies such as machine learning, AI, and frameworks like Bootstrap, React, Node.js, Django,  to build user-friendly and future-ready applications. 
+ 
+                    
+                </div>
+            </div>
+            <div class="card">
+                <i class="fas fa-graduation-cap"></i>
+                <h3>Education</h3>
+                <p>Find out more about my Educational/Academic pursuits.</p>
+                <a onclick="toggleInfo('education-info')" style="cursor: pointer;">Learn More ></a>
+                <div class="additional-info" id="education-info">
+                     Vaal University of Technology.
+                    <br> Course:N.Dip in Information Technology.
+
+
+                </div>
+            </div>
+            <div class="card">
+                <i class="fas fa-certificate"></i>
+                <h3>Online Courses & Certifications</h3>
+                <p>All of the Online Courses & Certifications that I have acquired.</p>
+                <a onclick="toggleInfo('certificates-info')" style="cursor: pointer;">Learn More ></a>
+                <div class="additional-info" id="certificates-info">
+                  Online certificates:  Itroduction to Ethical Hacking, Web Development Bootcamp,  Data Science tools,Data science 101,compTIA Cloud Intermidiate,docker essentials,frontend development libraries,machine learning with python,machine learning with Ai.
+                 <br>  Online Courses:CS50:Introduction to Computer science,CS50 introduction to programming with scatch,CS50 Web programming with python and javascript
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="projects">
+        <h2>Projects</h2>
+        <div class="project-cards">
+            <div class="project-card">
+                <h3>Website</h3>
+                <h3>Baatsebas Bakehouse</h3>
+                <ul>
+                    <li><strong>Objective:</strong> Showcase products with high-quality images and descriptions, offering customers an easy way to browse and order online.</li>
+                    <li><strong>Techniques Used:</strong> Responsive Web Design, Semantic HTML Structure, CSS Flexbox and Grid Layouts.</li>
+                    <li><strong>Tools/Libraries:</strong> HTML & CSS.</li>
+                </ul>
+            </div>
+            <div class="project-card">
+                <h3> AI and Machine Learning</h3>
+                <h3>IBM Gen Ai</h3>
+                <ul>
+                    <li><strong>Objective:</strong>  Generative AI.leveraging development skills and create an intelligent,AI driven Application.</li>
+                    <li><strong>Techniques Used:</strong> json responses,flask web application,AI Intergrated code.</li>
+                    <li><strong>Tools/Libraries:</strong> Python,json,Llama,granite,mixtral.</li>
+                </ul>
+            </div>
+            <div class="project-card">
+                <h3>E-commerce platform</h3>
+                <h3>Freshscrents</h3>
+                <ul>
+                    <li><strong>Objective:</strong> Enhance student learning, providing insights through data-driven analysis.</li>
+                    <li><strong>Techniques Used:</strong> Data Collection, SQL Database, Machine Learning Algorithms.</li>
+                    <li><strong>Tools/Libraries:</strong> Html,css,javascript,php and SQL.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="contact-me">
+            <h2>Contact Me</h2>
+            <div class="contact-icons">
+                <a href="https://www.linkedin.com/in/lola-maimane-a168252a0" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/LolaMaimane" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.facebook.com/yLolacarllotamaimane" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://www.instagram.com/LolaMaimane" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+
+    <script> 
+        function toggleInfo(id) {
+            const info = document.getElementById(id);
+            if (info.style.display === "none" || info.style.display === "") {
+                info.style.display = "block";
+            } else {
+                info.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+
